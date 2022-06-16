@@ -36,6 +36,7 @@
           displayName: Bash
           steps:
             - bash: |
+                witch bash:
                 Sum = $((${{ variables.a }} + ${{ variables.b }}))
                 echo ${{ variables.a }}>tema_faina_script.txt
                 echo ${{ variables.b }}>tema_faina_bash.txt
