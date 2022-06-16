@@ -23,12 +23,12 @@
           displayName: Script
           steps:
             - script: |
-                Sum = $((${{ variables.a }} + ${{ variables.b }}))
+                Sum=$((${{ variables.a }} + ${{ variables.b }}))
                 echo $Sum>tema_faina_script.txt
               displayName: 'Sum using script'
             
             - publish: tema_faina_script.txt
-              displayName: Publish artifact for sum using script
+              displayName: Publish artifact
           
         - job:
           displayName: Bash
