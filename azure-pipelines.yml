@@ -23,8 +23,8 @@
           displayName: Script
           steps:
             - script: |
-                S = $((${{ variables.a }} + ${{ variables.b }}))
-                echo $S>tema_faina_script.txt
+                Sum = $((${{ variables.a }} + ${{ variables.b }}))
+                echo $Sum>tema_faina_script.txt
               displayName: 'Sum using script'
             
             - publish: tema_faina_script.txt
@@ -34,8 +34,8 @@
           displayName: Bash
           steps:
             - bash: |
-                S = $((${{ variables.a }} + ${{ variables.b }}))
-                echo $S>tema_faina_bash.txt
+                Sum = $((${{ variables.a }} + ${{ variables.b }}))
+                echo $Sum>tema_faina_bash.txt
               displayName: 'Sum using bash'
             
             - publish: tema_faina_bash.txt
@@ -45,8 +45,8 @@
           displayName: Powershell
           steps:
             - powershell: |
-                $S = $((${{ variables.a }} + ${{ variables.b }}))
-                $S>tema_faina_powershell.txt
+                $Sum = $((${{ variables.a }} + ${{ variables.b }}))
+                $Sum>tema_faina_powershell.txt
               displayName: 'Sum using powershell'
             
             - publish: tema_faina_pawershell.txt
