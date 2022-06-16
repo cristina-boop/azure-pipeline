@@ -24,6 +24,8 @@
           steps:
             - script: |
                 Sum=$((${{ variables.a }} + ${{ variables.b }}))
+                echo ${{ variables.a }}
+                echo ${{ variables.b }}
                 echo $Sum>tema_faina_script.txt
               displayName: 'Sum using script'
             
@@ -35,6 +37,8 @@
           steps:
             - bash: |
                 Sum = $((${{ variables.a }} + ${{ variables.b }}))
+                echo ${{ variables.a }}
+                echo ${{ variables.b }}
                 echo $Sum>tema_faina_bash.txt
               displayName: 'Sum using bash'
             
