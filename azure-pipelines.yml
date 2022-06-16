@@ -42,12 +42,12 @@
               displayName: Publish artifact for sum using bash
         
         - job:
-          displayName: Pawershell
+          displayName: Powershell
           steps:
             - powershell: |
                 $S = $((${{ variables.a }} + ${{ variables.b }}))
-                echo $S>tema_faina_bash.txt
-              displayName: 'Sum using bash'
+                $S>tema_faina_powershell.txt
+              displayName: 'Sum using powershell'
             
             - publish: tema_faina_pawershell.txt
               displayName: Publish artifact for sum using pawershell
