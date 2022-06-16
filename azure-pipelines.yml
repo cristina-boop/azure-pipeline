@@ -14,6 +14,7 @@
 
   pool:
     vmImage: ubuntu-latest
+
   stages:
     - stage:
       displayName: Sum for a and b
@@ -22,9 +23,20 @@
           displayName: Script
           steps:
             - script: |
-                Sum=$((${{ variables.a }} + ${{ variables.b }}))
-                echo $Sum>tema_faina_script.txt
+                S = $((${{ variables.a }} + ${{ variables.b }}))
+                echo $S>tema_faina_script.txt
               displayName: 'Sum using script'
             
             - publish: tema_faina_script.txt
-              displayName: Publish artifact
+              displayName: Publish artifact for sum using script
+          
+        - job:
+          displayName: Bash
+          steps:
+            - bash: |
+                S = $((${{ variables.a }} + ${{ variables.b }}))
+                echo $S>tema_faina_bash.txt
+              displayName: 'Sum using bash'
+            
+            - publish: tema_faina_bash.txt
+              displayName: Publish artifact for sum using bash
