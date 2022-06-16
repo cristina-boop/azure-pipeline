@@ -1,19 +1,30 @@
-# Starter pipeline
+     # Starter pipeline
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+  trigger:
+  - main
 
-pool:
-  vmImage: ubuntu-latest
+  variables:
+  - name: a
+    value: 2
+  - name: b
+    value: 3
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  pool:
+    vmImage: ubuntu-latest
+  stages:
+    - stage:
+      displayName: Sum for a and b
+      jobs:
+        - job:
+          displayName: Script
+          steps:
+            - script: |
+                Sum=$((${{ variables.a }} + ${{ variables.b }}))
+                echo $Sum>tema_faina_script.txt
+              displayName: 'Sum using script'
+            
+            - publish: tema_faina_script.txt
+              displayName: Publish artifact
