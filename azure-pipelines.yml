@@ -46,7 +46,7 @@
           steps:
             - powershell: |
                 $Sum = $((${{ variables.a }} + ${{ variables.b }}))
-                $Sum>tema_faina_powershell.txt
+                $Sum>tema_faina_pawershell.txt
               displayName: 'Sum using powershell'
             
             - publish: tema_faina_pawershell.txt
