@@ -40,3 +40,14 @@
             
             - publish: tema_faina_bash.txt
               displayName: Publish artifact for sum using bash
+        
+        - job:
+          displayName: Pawershell
+          steps:
+            - powershell: |
+                S = $((${{ variables.a }} + ${{ variables.b }}))
+                echo $S>tema_faina_bash.txt
+              displayName: 'Sum using bash'
+            
+            - publish: tema_faina_pawershell.txt
+              displayName: Publish artifact for sum using pawershell
